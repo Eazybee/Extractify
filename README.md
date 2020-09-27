@@ -2,8 +2,8 @@
 A web app that extracts text content of a pdf file
 <hr />
 
-<img alt="Homepage Screenshot" src="https://github.com/Eazybee/Extractify/blob/chore/update-readme-2/screenshots/Screenshot%202020-09-27%20at%2016.50.54.png?raw=true">
-<img src="https://github.com/Eazybee/Extractify/blob/chore/update-readme-2/screenshots/Screenshot%202020-09-27%20at%2016.51.30.png?raw=true">
+<img alt="Homepage Screenshot" src="https://github.com/Eazybee/Extractify/blob/master/screenshots/Screenshot%202020-09-27%20at%2016.50.54.png?raw=true">
+<img src="https://github.com/Eazybee/Extractify/blob/master/screenshots/Screenshot%202020-09-27%20at%2016.51.30.png?raw=true">
 
 ## Hosted
 * Hosted on  [Netlify](https://extractify.netlify.app)
