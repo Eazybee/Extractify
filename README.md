@@ -2,8 +2,11 @@
 A web app that extracts text content of a pdf file
 <hr />
 
+<img alt="Homepage Screenshot" src="https://github.com/Eazybee/Extractify/blob/master/screenshots/Screenshot%202020-09-27%20at%2015.46.34.png?raw=true">
+<img src="https://github.com/Eazybee/Extractify/blob/master/screenshots/Screenshot%202020-09-27%20at%2015.46.06.png?raw=true">
+
 ## Hosted
-* Hosted on  [Netlify](https://weather-front.netlify.app/)
+* Hosted on  [Netlify](https://extractify.netlify.app)
 
 
 ## Features
