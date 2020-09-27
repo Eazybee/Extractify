@@ -1,0 +1,9 @@
+export const appId = process.env.REACT_APP_FIRE_ID;
+export const apiKey = process.env.REACT_APP_FIRE_KEY;
+export const authDomain = process.env.REACT_APP_FIRE_AUTH_DOMAIN;
+export const databaseURL = process.env.REACT_APP_FIRE_DB;
+export const projectId = process.env.REACT_APP_FIRE_PROJECT_ID;
+export const storageBucket = process.env.REACT_APP_FIRE_STORAGE_KEY;
+export const messagingSenderId = process.env.REACT_APP_FIRE_MSG_SENDER_ID;
+export const measurementId = process.env.REACT_APP_FIRE_MEASUREMNET_ID;
+export const cloudFunctionUrl = process.env.REACT_APP_CLOUD_FUNCTION_URL;

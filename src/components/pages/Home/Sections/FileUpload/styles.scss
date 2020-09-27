@@ -1,0 +1,134 @@
+.dragContainer{
+  
+  & > div{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px #2196f3 dashed;
+    border-radius: .5rem;
+    background-color: rgb(252, 253, 255);
+    color: #bdbdbd;
+    outline: none;
+    transition: border .5s linear;
+    height: 25rem;
+    justify-content: center;
+
+    p{
+      color: #8393ae;
+    }
+
+    div{
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .uploadBoard div {
+      & > p {
+        margin: .8rem 0;
+        color: rgb(37, 116, 251);
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+    }
+    .uploading {
+      min-height: 60%;
+      justify-content: space-between;
+      max-width: 80%;
+      overflow: scroll;
+
+      > div {
+        display: flex;
+        justify-content: center;
+        max-height: 18rem;
+        overflow: scroll;
+
+        &:first-child{
+          > div.file {
+            flex-flow: row nowrap;
+            border: 1px solid #d3e5ff;
+            border-radius: 10px;
+            margin: .2rem 0;
+            padding: .5rem;
+  
+            p { color: #000000; }
+          }
+        }
+
+        &:last-child{
+          flex-flow: column;
+          align-items: center;
+          margin-top: 1rem;
+
+          > span {
+            border: 1px solid #d3e5ff;
+            border-radius: 20px;
+            height: 2rem;
+            width: 15rem;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            padding: .3rem .4rem;
+
+            span {
+              overflow: hidden;
+              height: 100%;
+              width: 100%;
+              display: block;
+              border-radius: 20px;
+              position: relative;
+                span {
+                  display: block;
+                  height: 100%;
+                  width: 1%;
+                  background-color: #2171f7;
+                  border-radius: 20px;
+                  position: absolute;
+                  transition: linear 1s;
+                }
+            }
+          }
+        }
+      }
+    }
+
+    .uploaded {
+      justify-content: space-between;
+
+      div {
+        p{
+          color: #103068;
+        }
+      }
+
+      button{
+        background-color: #2171f7;
+        color: #ffffff;
+        padding: .5rem 1rem;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-top: 4em;
+      }
+    }
+
+    &.dragActive{
+      border: #2196f3 solid 1px;
+      background-color: rgba(74, 144, 226, 0.08);
+    }
+
+    &.dragAccepted{
+      border-color: green;
+    }
+
+    &.dragRejected{
+      border-color: red;
+    }
+
+    &.uploading{
+      border: #2196f3 solid 1px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+div.homePage {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  header {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+
+    h1 {
+      background: -webkit-linear-gradient(45deg, #09009f, #70d2ff 80%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.5rem;
+    }
+
+    button {
+      background: red;
+      margin-left: 3rem;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  }
+  main {
+   width: 100%;
+   padding: 1rem;
+   max-width: 74rem;
+  }
+}
+
