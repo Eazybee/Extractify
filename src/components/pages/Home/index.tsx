@@ -12,6 +12,7 @@ import { logOut } from "../../../contexts/UserAction";
 
 const HomePage = () => {
   const [files, setFiles] = useState<{ key: string; name: string }[]>([]);
+  const [show, setShow] = useState(false);
   const [extracted, setExtracted] = useState<{ text: string; name: string }[]>(
     []
   );
@@ -24,6 +25,7 @@ const HomePage = () => {
 
   useEffect(() => {
     if (!isComponentVisible) {
+      setShow(false);
       setExtracted([]);
     }
   }, [isComponentVisible]);
@@ -55,10 +57,14 @@ const HomePage = () => {
   }, [user]);
 
   const extractFile = async (name: string) => {
+    console.log('ok');
+
     const url = await firebaseApp
       .storage()
       .ref(`pdfs/${user?.uid}/${name}`)
       .getDownloadURL();
+
+      console.log('ok2');
 
     if (cloudFunctionUrl) {
       return fetch(cloudFunctionUrl, {
@@ -72,6 +78,7 @@ const HomePage = () => {
   };
 
   const showFile = async (filename: string) => {
+    setShow(true);
     try {
       const res = await extractFile(filename);
 
@@ -85,7 +92,8 @@ const HomePage = () => {
         setIsComponentVisible(true);
       }
     } catch (error) {
-      console.error(error);
+      console.error(error, 'bee');
+      setShow(false);
     }
   };
 
@@ -96,14 +104,16 @@ const HomePage = () => {
   ) => {
     e.stopPropagation();
     try {
-      firebaseApp.storage().ref(`pdfs/${user?.uid}/${filename}`).delete();
-      firebaseApp.database().ref(`users/${user?.uid}/${key}`).remove();
+      firebaseApp.database().ref(`users/${user?.uid}/${key}`).remove().then(() => {
+        firebaseApp.storage().ref(`pdfs/${user?.uid}/${filename}`).delete();
+      });
     } catch (error) {
       console.error(error);
     }
   };
 
   const updateFiles = async (filesnames: string[]) => {
+    setShow(true);
     const usersDb = firebaseApp.database().ref("users");
     if (user) {
       const fileLinks = await Promise.allSettled(
@@ -130,10 +140,22 @@ const HomePage = () => {
         }
       });
 
-      setExtracted(successfulExtraction);
-      setIsComponentVisible(true);
+      if (successfulExtraction) {
+        setExtracted(successfulExtraction);
+        setIsComponentVisible(true);
+      } else {
+        setShow(false);
+      }
     }
   };
+
+  const fileViewProps: any = {
+    files: extracted,
+  };
+
+  if (extracted.length) {
+    fileViewProps.ref = ref;
+  }
 
   return (
     <div className="homePage">
@@ -147,9 +169,9 @@ const HomePage = () => {
         {user ? <FileUpload user={user} updateFiles={updateFiles} /> : ""}
         <FileList files={files} deleteFile={deleteFile} showFile={showFile} />
       </main>
-      {extracted.length ? (
+      {show ? (
         <Modal>
-          <FileView files={extracted} ref={ref} />
+          <FileView {...fileViewProps} />
         </Modal>
       ) : null}
     </div>
