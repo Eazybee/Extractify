@@ -11,7 +11,7 @@ A web app that extracts text content of a pdf file
 
 ## Features
 * Signup / Login 
-* multiple file upload
+* Multiple file upload
 * Extract text content from pdf
 * Stores user pdf
 * User can delete pdf
