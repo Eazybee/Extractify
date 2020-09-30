@@ -1,11 +1,12 @@
 import React, { forwardRef } from "react";
 import "./styles.scss";
 import Input from "../../../../ui/Input";
+import LoadingSpinner from "../../../../ui/LoadingSpinner";
 
 const FileView = forwardRef(({ files }: Props, ref: any) => (
   <div className="fileview">
     <div ref={ref}>
-      {files.map((file) => (
+      {files.length ? files.map((file) => (
         <div key={file.name}>
           <Input
             label={file.name}
@@ -19,7 +20,8 @@ const FileView = forwardRef(({ files }: Props, ref: any) => (
             }}
           />
         </div>
-      ))}
+      )) : <LoadingSpinner />}
+
     </div>
   </div>
 ));
