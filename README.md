@@ -1,5 +1,5 @@
 # Extractify
-A web app that extracts text content of a pdf file
+A web app that extracts text content of a pdf file [Extractify](https://extractify.netlify.app)
 <hr />
 
 <img alt="Homepage Screenshot" src="https://github.com/Eazybee/Extractify/blob/master/screenshots/Screenshot%202020-09-27%20at%2016.50.54.png?raw=true">
